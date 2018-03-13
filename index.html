@@ -20,30 +20,56 @@
         </section>
         <h1>books app</h1>
     </header>
-    <section id="books">
+    <!-- views -->
+    <section id="books-view" class="view">
         <h2>my books</h2>
-        <script id="book-template" type="text/html">
-            <section class="book card">
-                    <img class="book img" src="{{image_url}}">
-                    <section class="book info">
-                        <h2>{{title}}</h2>
-                        <h3>{{author}}</h3>
-                        <h3>{{isbn}}</h3>
-                        <p>{{description}}</p>
-                    </section>
-            </section>
-        </script>
     </section>
+    <section id="book-detail-view" class="view"></section>
+    <section id="new-book-view" class="view"></section>
+
     <footer>
 
     </footer>
-</body>
+    <!-- templates -->
+    <script id="book-template" type="text/html">
+        <section class="book card">
+                <img class="book card img" src="{{image_url}}">
+                <section class="book info">
+                    <h2>{{title}}</h2>
+                    <h3>{{author}}</h3>
+                </section>
+        </section>
+    </script>
+
+    <script id="book-detail-template" type="text/html">
+        <h2>{{title}}</h2>
+        <h4>{{author}}<h4>
+        <h4>{{isbn}}<h4>
+        <img class="book detail img" src="{{image_url}}">
+        <p>{{description}}</p>
+    </script>
+
+
+    <!-- config -->
+    <script>    
+            const API_URL = window.location.protocol === 'https:'
+            ? 'https://bc2-booklist.herokuapp.com'
+            : 'http://localhost:3000/api';
+        
+            window.module = {};
+    </script>
+    <!-- third party scripts -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+    <!-- app scripts -->
 <script src="scripts/models/book.js"></script>
-<script src="scripts/views/bookView.js"></script>
+<script src="scripts/view/book-view.js"></script>
 <script>
     app.Book.fetchAll(app.bookView.initIndexPage);
     console.log('break me');
 </script>
+
+
+</body>
 </html>

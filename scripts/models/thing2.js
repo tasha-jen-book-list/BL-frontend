@@ -38,4 +38,4 @@ const API_URL = 'http://localhost:3000';
 
     module.book = Book;
 
-})(window.app || (window.app = {}));
+})(window.module);
