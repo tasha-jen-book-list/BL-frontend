@@ -5,10 +5,40 @@
 
     const bookView = {};
 
-    bookView.initIndexPage = () => {
+    const bookTemplate = Handlebars.compile($('#book-template').html());
+    const detailTemplate = Handlebars.compile($('#book-detail-template').html());
+
+    function resetView() {
+        $('.view').hide();
+    }
+
+    bookView.init = () => {
         bookView.loadBooks();
+        resetView();
+        $('#books-view').show();
+
+        Book.all.forEach(book => {
+            const bookCard = bookTemplate(book);
+            $('#books').append(bookCard);
+        });
         // bookView.handleSubmit();
     };
+
+    bookView.initNew = () => {
+        resetView();
+        $('#new-book-view').show();
+    }; 
+
+    bookView.initDetail = id => {
+        resetView();
+
+        const bookDetail = detailTemplate(Book.detail);
+
+        $('#detail-book-view')
+            .empty()
+            .append(bookDetail)
+            .show();
+    }; 
     
     bookView.loadBooks = () => {
         Book.all.forEach(book => {
@@ -16,9 +46,6 @@
         });
     };
 
-    bookView.loadBook = book => {
-        $('#books').append(book.toHtml());
-    };
 
     // bookView.handleSubmit = () => {
     //     $('#add-book').on('submit', event => {
@@ -38,4 +65,4 @@
     // What does your module export
     module.bookView = bookView;
 
-})(window.app || (window.app = {}));
+})(window.module);

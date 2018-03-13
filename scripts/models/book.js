@@ -1,31 +1,27 @@
 'use strict';
 
-console.log('Do I work?');
-// const API_URL = 'http://localhost:3000';
-const API_URL = 'https://bc2-booklist.herokuapp.com';
-
 (function (module) {
-
-    const template = Handlebars.compile($('#book-template').html());
     
     function Book(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
     }
-    
-    Book.prototype.toHtml = function() {
-        return template(this);
-    };
 
-    // Define "instance" data methods
-    Book.prototype.insert = function(callback) {
-        $.post(`${API_URL}/books`, {
-            task: this.task
-        })
-            .then(data => {
-                Object.keys(data).forEach(key => this[key] = data[key]);
-                if(callback) callback();
-            });
-    };
+    function errorCallback(err) {
+        console.log(err);
+        module.errorView.init(err);
+    }
+
+    // // Define "instance" data methods
+    // Book.prototype.insert = function(callback) {
+    //     $.post(`${API_URL}/books`, {
+    //         task: this.task
+    //     })
+    //         .then(data => {
+    //             Object.keys(data).forEach(key => this[key] = data[key]);
+    //             if(callback) callback();
+    //         })
+    //         .catch(errorCallback);
+    // };
     
     Book.all = [];
     
@@ -35,9 +31,28 @@ const API_URL = 'https://bc2-booklist.herokuapp.com';
                 Book.all = data.map(each => new Book(each));
                 if(callback) callback();
             })
-            .catch(console.log);
+            .catch(errorCallback);
+    };
+    
+    Book.detail = null;
+
+    Book.fetchOne = (id, callback) => {
+        $.getJSON(`${API_URL}/book/${id}`)
+            .then(data => {
+                Book.detail = new Book(data);
+                if(callback) callback();
+            })
+            .catch(errorCallback);
+    };
+
+    Book.create = function(data, callback) {
+        $.post(`${API_URL}/new`, data)
+            .then((data) => {
+                if(callback) callback(data);
+            })
+            .catch(errorCallback);
     };
 
     module.Book = Book;
 
-})(window.app || (window.app = {}));
+})(window.module);
