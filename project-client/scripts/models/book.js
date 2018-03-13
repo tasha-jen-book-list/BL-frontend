@@ -29,7 +29,7 @@ const API_URL = 'https://bc2-booklist.herokuapp.com';
     
     Book.all = [];
     
-    Book.fetchAll = function(callback) {
+    Book.prototype.fetchAll = function(callback) {
         $.getJSON(`${API_URL}/books`)
             .then(data => {
                 Book.all = data.map(each => new Book(each));
@@ -38,6 +38,6 @@ const API_URL = 'https://bc2-booklist.herokuapp.com';
             .catch(console.log);
     };
 
-    module.book = Book;
+    module.Book = Book;
 
 })(window.app || (window.app = {}));
