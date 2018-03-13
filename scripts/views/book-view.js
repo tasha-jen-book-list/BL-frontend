@@ -25,7 +25,7 @@
 
     bookView.initNew = () => {
         resetView();
-        $('#new-book-view').show();
+        $('#book-new-view').show();
     }; 
 
     bookView.initDetail = id => {
@@ -34,7 +34,7 @@
 
         const bookDetail = detailTemplate(Book.detail);
 
-        $('#detail-book-view')
+        $('#book-detail-view')
             .empty()
             .append(bookDetail)
             .show();
