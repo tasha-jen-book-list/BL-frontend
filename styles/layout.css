@@ -1,0 +1,22 @@
+header {
+    background-color: #383838;
+}
+
+#books {
+    color: darkgray;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.book .card {
+    
+}
+
+.card .info{
+    background-color: #383838;
+    padding: 10px;
+}
+
+footer{
+
+}

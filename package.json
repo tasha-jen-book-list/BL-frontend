@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/tasha-jen-book-list/BL-frontend.git"
   },
-  "author": "",
+  "author": "Jen Lipton",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tasha-jen-book-list/BL-frontend/issues"
@@ -20,5 +20,6 @@
   "devDependencies": {
     "eslint": "^4.18.2",
     "nodemon": "^1.17.1"
-  }
+  },
+  "dependencies": {}
 }
