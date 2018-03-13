@@ -25,7 +25,34 @@
         <h2>my books</h2>
     </section>
     <section id="book-detail-view" class="view"></section>
-    <section id="new-book-view" class="view"></section>
+    <section id="book-new-view" class="view">
+        <form>
+            <div>
+                <fieldset>
+                    <legend>Add a Book:</legend>
+                    <label>
+                        <input type="text" name= "title" value="title">
+                    </label>
+                    <label>
+                        <input type="text" name="author" value="author">
+                    </label>
+                    <label>
+                        <input type="text" name="isbn" value="isbn"> 
+                    </label>
+                    <label>
+                        <input type="text" name="image_url" value="image_url">
+                    </label>
+                    <label>
+                        <input type="text" name="description" value="description">
+                    </label>
+                </fieldset>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
+        </form>
+
+    </section>
     <section id="error-view" class="view"></section>
     <footer>
 
@@ -48,6 +75,7 @@
         <img class="book detail img" src="{{image_url}}">
         <p>{{description}}</p>
     </script>
+    
     <script id="error-template" type="text/x-handlebars-template">
         <h3>Oops, something went wrong!</h3>
         <p>{{status}}: {{statusText}}</p>
