@@ -12,32 +12,33 @@
         $('.view').hide();
     }
 
-
     bookView.init = () => {
-        bookView.loadBooks();
         resetView();
         $('#books-view').show();
 
+        Book.all.forEach(book => {
+            const bookCard = bookTemplate(book);
+            $('#books-view').append(bookCard);
+        });
         // bookView.handleSubmit();
     };
 
     bookView.initNew = () => {
         resetView();
-        $('#new-book-view').show();
+        $('#book-new-view').show();
     }; 
 
     bookView.initDetail = id => {
+        console.log('detail running');
         resetView();
-        $('#detail-book-view').show();
-        $('#book-id').text(id);
-    }; 
-    
-    bookView.loadBooks = () => {
-        Book.all.forEach(book => {
-            bookView.loadBook(book);
-        });
-    };
 
+        const bookDetail = detailTemplate(Book.detail);
+
+        $('#book-detail-view')
+            .empty()
+            .append(bookDetail)
+            .show();
+    };
 
     // bookView.handleSubmit = () => {
     //     $('#add-book').on('submit', event => {

@@ -2,18 +2,14 @@
 
 (function(module) {
 
+    const Book = module.Book;
     const bookView = module.bookView;
-    
-    Book.prototype.toHtml = function() {
-        return bookTemplate(this);
-    };
-    bookView.loadBook = book => {
-        $('#books').append(book.toHtml());
-    };
 
-    page('/', () => bookView.init());
-    page('/book/new', () => bookView.initNew());
-    page('/book/:id', (ctx) => bookView.initDetail(ctx.params.id));
+    page('/home', () => Book.fetchAll(bookView.init));
+    page('/books/new', () => bookView.initNew());
+    page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
+
+    page('*', () => page.redirect('/home'));
 
     page({ hashbang: true });
 
