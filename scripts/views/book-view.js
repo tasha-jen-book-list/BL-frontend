@@ -13,7 +13,6 @@
     }
 
     bookView.init = () => {
-        bookView.loadBooks();
         resetView();
         $('#books-view').show();
 
@@ -38,14 +37,7 @@
             .empty()
             .append(bookDetail)
             .show();
-    }; 
-    
-    bookView.loadBooks = () => {
-        Book.all.forEach(book => {
-            bookView.loadBook(book);
-        });
     };
-
 
     // bookView.handleSubmit = () => {
     //     $('#add-book').on('submit', event => {
