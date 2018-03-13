@@ -6,9 +6,7 @@
         Object.keys(data).forEach(key => this[key] = data[key]);
     }
     
-    Book.prototype.toHtml = function() {
-        return bookTemplate(this);
-    };
+
 
     // Define "instance" data methods
     Book.prototype.insert = function(callback) {

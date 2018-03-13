@@ -26,7 +26,7 @@
     </section>
     <section id="book-detail-view" class="view"></section>
     <section id="new-book-view" class="view"></section>
-
+    <section id="error-view" class="view"></section>
     <footer>
 
     </footer>
@@ -35,7 +35,7 @@
         <section class="book card">
                 <img class="book card img" src="{{image_url}}">
                 <section class="book info">
-                    <h2>{{title}}</h2>
+                    <h2><a href = "book/{{id}}">{{title}}</a></h2>
                     <h3>{{author}}</h3>
                 </section>
         </section>
@@ -48,6 +48,10 @@
         <img class="book detail img" src="{{image_url}}">
         <p>{{description}}</p>
     </script>
+    <script id="error-template" type="text/x-handlebars-template">
+        <h3>Oops, something went wrong!</h3>
+        <p>{{status}}: {{statusText}}</p>
+    </script>
 
 
     <!-- config -->
@@ -59,17 +63,13 @@
             window.module = {};
     </script>
     <!-- third party scripts -->
+<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
     <!-- app scripts -->
 <script src="scripts/models/book.js"></script>
 <script src="scripts/view/book-view.js"></script>
-<script>
-    app.Book.fetchAll(app.bookView.init);
-    console.log('break me');
-</script>
-
-
+<script src= "scripts/app.js"></script>
 </body>
 </html>

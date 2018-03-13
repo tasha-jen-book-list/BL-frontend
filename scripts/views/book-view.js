@@ -8,25 +8,28 @@
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
 
+    function resetView() {
+        $('.view').hide();
+    }
 
 
     bookView.init = () => {
         bookView.loadBooks();
-
-        $('.view').hide();
+        resetView();
         $('#books-view').show();
 
         // bookView.handleSubmit();
     };
 
-    bookView.initDetail = () => {
-        $('.view').hide();
-        $('#book-detail-view').show();
+    bookView.initNew = () => {
+        resetView();
+        $('#new-book-view').show();
     }; 
 
-    bookView.initNew = () => {
-        $('.view').hide();
-        $('#new-book-view').show();
+    bookView.initDetail = id => {
+        resetView();
+        $('#detail-book-view').show();
+        $('#book-id').text(id);
     }; 
     
     bookView.loadBooks = () => {
@@ -35,9 +38,6 @@
         });
     };
 
-    bookView.loadBook = book => {
-        $('#books').append(book.toHtml());
-    };
 
     // bookView.handleSubmit = () => {
     //     $('#add-book').on('submit', event => {
