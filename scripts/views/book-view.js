@@ -18,7 +18,7 @@
 
         Book.all.forEach(book => {
             const bookCard = bookTemplate(book);
-            $('#books').append(bookCard);
+            $('#books-view').append(bookCard);
         });
         // bookView.handleSubmit();
     };

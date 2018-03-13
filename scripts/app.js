@@ -7,6 +7,7 @@
     
 
     page('/', () => Book.fetchAll(bookView.init));
+    console.log('igloos');
     page('/books/new', () => bookView.initNew());
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
 
