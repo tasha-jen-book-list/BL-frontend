@@ -12,12 +12,15 @@
         $('.view').hide();
     }
 
-
     bookView.init = () => {
         bookView.loadBooks();
         resetView();
         $('#books-view').show();
 
+        Book.all.forEach(book => {
+            const bookCard = bookTemplate(book);
+            $('#books').append(bookCard);
+        });
         // bookView.handleSubmit();
     };
 
@@ -28,8 +31,13 @@
 
     bookView.initDetail = id => {
         resetView();
-        $('#detail-book-view').show();
-        $('#book-id').text(id);
+
+        const bookDetail = detailTemplate(Book.detail);
+
+        $('#detail-book-view')
+            .empty()
+            .append(bookDetail)
+            .show();
     }; 
     
     bookView.loadBooks = () => {
