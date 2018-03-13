@@ -5,10 +5,29 @@
 
     const bookView = {};
 
-    bookView.initIndexPage = () => {
+    const bookTemplate = Handlebars.compile($('#book-template').html());
+    const detailTemplate = Handlebars.compile($('#book-detail-template').html());
+
+
+
+    bookView.init = () => {
         bookView.loadBooks();
+
+        $('.view').hide();
+        $('#books-view').show();
+
         // bookView.handleSubmit();
     };
+
+    bookView.initDetail = () => {
+        $('.view').hide();
+        $('#book-detail-view').show();
+    }; 
+
+    bookView.initNew = () => {
+        $('.view').hide();
+        $('#new-book-view').show();
+    }; 
     
     bookView.loadBooks = () => {
         Book.all.forEach(book => {
