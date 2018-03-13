@@ -23,20 +23,20 @@ const API_URL = 'https://bc2-booklist.herokuapp.com';
         $('#books').append(book.toHtml());
     };
 
-    bookView.handleSubmit = () => {
-        $('#add-book').on('submit', event => {
-            event.preventDefault();
+    // bookView.handleSubmit = () => {
+    //     $('#add-book').on('submit', event => {
+    //         event.preventDefault();
             
-            const book = new Book({
-                task: $('#book-task').val()
-            });
+    //         const book = new Book({
+    //             task: $('#book-task').val()
+    //         });
 
-            book.insert(() => {
-                $('#book-task').val('');
-                bookView.loadBook(book);
-            });
-        });
-    };
+    //         book.insert(() => {
+    //             $('#book-task').val('');
+    //             bookView.loadBook(book);
+    //         });
+    //     });
+    // };
 
     // What does your module export
     module.bookView = bookView;
