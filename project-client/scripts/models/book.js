@@ -16,16 +16,16 @@ const API_URL = 'https://bc2-booklist.herokuapp.com';
         return template(this);
     };
 
-    // // Define "instance" data methods
-    // Book.prototype.insert = function(callback) {
-    //     $.post(`${API_URL}/books`, {
-    //         task: this.task
-    //     })
-    //         .then(data => {
-    //             Object.keys(data).forEach(key => this[key] = data[key]);
-    //             if(callback) callback();
-    //         });
-    // };
+    // Define "instance" data methods
+    Book.prototype.insert = function(callback) {
+        $.post(`${API_URL}/books`, {
+            task: this.task
+        })
+            .then(data => {
+                Object.keys(data).forEach(key => this[key] = data[key]);
+                if(callback) callback();
+            });
+    };
     
     Book.all = [];
     
