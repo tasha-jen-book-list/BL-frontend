@@ -29,6 +29,7 @@
     }; 
 
     bookView.initDetail = id => {
+        console.log('detail running');
         resetView();
 
         const bookDetail = detailTemplate(Book.detail);
