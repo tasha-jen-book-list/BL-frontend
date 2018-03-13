@@ -7,7 +7,7 @@
 
     bookView.initIndexPage = () => {
         bookView.loadBooks();
-        bookView.handleSubmit();
+        // bookView.handleSubmit();
     };
     
     bookView.loadBooks = () => {
