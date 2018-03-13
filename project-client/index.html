@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <section id="icon">
+            <img src="###">
+        </section>
+        <h1>books app</h1>
+    </header>
+    <main>
+        <h2>my books</h2>
+        <script id="book-template" type="text/html">
+            <section class="book card">
+                    <img class="book img" src="{{image_url}}">
+                    <section class="book info">
+                        <h2>{{title}}</h2>
+                        <h3>{{author}}</h3>
+                        <h3>{{isbn}}</h3>
+                        <p>{{description}}</p>
+                    </section>
+            </section>
+        </script>
+    </main>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+<script src="scripts/models/book.js"></script>
+<script src="scripts/views/bookView.js"></script>
+<script>
+        app.Book.fetchAll(app.bookView.initIndexPage);
+</script>
+</html>
