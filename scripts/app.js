@@ -10,7 +10,7 @@
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
     page('/igloo', ()=> console.log('bucket'));
 
-    page('*', () => page.redirect('/'));
+    page('*', () => page.redirect('/BL-frontend/'));
 
     page({ hashbang: true });
 
