@@ -18,22 +18,23 @@
 
         Book.all.forEach(book => {
             const bookCard = bookTemplate(book);
-            $('#books').append(bookCard);
+            $('#books-view').append(bookCard);
         });
         // bookView.handleSubmit();
     };
 
     bookView.initNew = () => {
         resetView();
-        $('#new-book-view').show();
+        $('#book-new-view').show();
     }; 
 
     bookView.initDetail = id => {
+        console.log('detail running');
         resetView();
 
         const bookDetail = detailTemplate(Book.detail);
 
-        $('#detail-book-view')
+        $('#book-detail-view')
             .empty()
             .append(bookDetail)
             .show();
