@@ -6,3 +6,7 @@ header h1{
     display: inline-block;
 }
 
+.card a, .card a:visited{
+    text-decoration: none;
+    color: lightgray;
+}

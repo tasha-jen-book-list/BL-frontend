@@ -20,13 +20,15 @@
         </section>
         <h1>books app</h1>
     </header>
-    <!-- views -->
-    <section id="books-view" class="view">
-        <h2>my books</h2>
-    </section>
-    <section id="book-detail-view" class="view"></section>
-    <section id="new-book-view" class="view"></section>
-    <section id="error-view" class="view"></section>
+    <main>
+        <!-- views -->
+        <section id="books-view" class="view">
+            <h2>my books</h2>
+        </section>
+        <section id="book-detail-view" class="view"></section>
+        <section id="new-book-view" class="view"></section>
+        <section id="error-view" class="view"></section>
+    </main> 
     <footer>
 
     </footer>
@@ -59,18 +61,18 @@
     <script>    
             const API_URL = window.location.protocol === 'https:'
             ? 'https://bc2-booklist.herokuapp.com'
-            : 'http://localhost:3000/api';
+            : 'http://localhost:3000';
         
             window.module = {};
     </script>
     <!-- third party scripts -->
-<script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
-    <!-- app scripts -->
-<script src="scripts/models/book.js"></script>
-<script src="scripts/views/book-view.js"></script>
-<script src="scripts/app.js"></script>
+        <!-- app scripts -->
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/app.js"></script>
 </body>
 </html>
