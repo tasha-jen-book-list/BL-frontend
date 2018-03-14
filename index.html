@@ -19,17 +19,48 @@
             <img src="styles/acl.png">
         </section>
         <h1>books app</h1>
+        <div class="icon-menu"></div>
+        <nav class="nav-menu">
+            <ul>
+            <li><a href="/home">HomePage</a></li>
+            <li><a href="/new">Add New Book</a></li>
+            </ul>
+        </nav>
     </header>
-    <main>
-        <!-- views -->
-        <section id="books-view" class="view">
-            <h2>my books</h2>
-        </section>
-        <section id="book-detail-view" class="view"></section>
-        <section id="book-new-view" class="view"></section>
+    <!-- views -->
+    <section id="books-view" class="view">
+        <h2>my books</h2>
+    </section>
+    <section id="book-detail-view" class="view"></section>
+    <section id="book-new-view" class="view">
+        <form id="book-form">
+            <div>
+                <fieldset>
+                    <legend>Add a Book:</legend>
+                    <label>
+                        <input type="text" name= "title" value="title">
+                    </label>
+                    <label>
+                        <input type="text" name="author" value="author">
+                    </label>
+                    <label>
+                        <input type="text" name="isbn" value="isbn"> 
+                    </label>
+                    <label>
+                        <input type="text" name="image_url" value="image_url">
+                    </label>
+                    <label>
+                        <input type="text" name="description" value="description">
+                    </label>
+                </fieldset>
+            </div>
+            <div>
+                <button>Add</button>
+            </div>
+        </form>
 
-        <section id="error-view" class="view"></section>
-    </main> 
+    </section>
+    <section id="error-view" class="view"></section>
     <footer>
 
     </footer>
@@ -51,7 +82,7 @@
         <img class="book detail img" src="{{image_url}}">
         <p>{{description}}</p>
     </script>
-
+    
     <script id="error-template" type="text/x-handlebars-template">
         <h3>Oops, something went wrong!</h3>
         <p>{{status}}: {{statusText}}</p>
@@ -62,7 +93,7 @@
     <script>    
         const API_URL = window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
-        : 'http://localhost:3000';
+        : 'http://localhost:3000/api';
     
         window.module = {};
     </script>
