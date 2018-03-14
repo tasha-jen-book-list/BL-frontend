@@ -23,7 +23,7 @@
         <nav class="nav-menu">
             <ul>
             <li><a href="/home">HomePage</a></li>
-            <li><a href="books/new">Add New Book</a></li>
+            <li><a href="/books/new">Add New Book</a></li>
             </ul>
         </nav>
     </header>
@@ -91,7 +91,7 @@
 
     <!-- config -->
     <script>    
-        const API_URL = window.location.protocol === 'https:'
+        const API_URL = true //window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
         : 'http://localhost:3000/api';
     
