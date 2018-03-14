@@ -8,13 +8,7 @@
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
 
-    function resetView() {
-        $('.view').hide();
-        $('.nav-menu').slideUp(350);
-    }
-
     bookView.init = () => {
-        resetView();
         $('#books-view').show();
 
         $('#books').empty();
@@ -25,7 +19,6 @@
     };
 
     bookView.initNew = () => {
-        resetView();
         $('#book-new-view').show();
 
         $('#book-form')
@@ -50,7 +43,6 @@
 
     bookView.initDetail = id => {
         console.log('detail running');
-        resetView();
 
         const bookDetail = detailTemplate(Book.detail);
 
