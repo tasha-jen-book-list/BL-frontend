@@ -33,3 +33,7 @@ nav {
     padding: 10px 5px;
     font-size: 18px;
  }
+
+#book-form{
+    display: none;
+}
