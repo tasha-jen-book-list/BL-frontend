@@ -52,6 +52,26 @@
             .show();
     };
 
+    bookView.initUpdate = () => {
+        console.log('update finished');
+
+        $('#book-new-view').show();
+
+        const book = Book.detail;
+        
+        $('input[name=title]').val(book.title),
+        $('input[name=author]').val(book.author),
+        $('input[name=isbn]').val(book.isbn),
+        $('input[name=image_url]').val(book.image_url),
+        $('input[name=description]').val(book.description)
+    };
+
+    bookView.initDelete = () => {
+        console.log('Deleted');
+
+
+    }
+
 
     // What does your module export
     module.bookView = bookView;
