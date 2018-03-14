@@ -17,9 +17,10 @@
         resetView();
         $('#books-view').show();
 
+        $('#books').empty();
         Book.all.forEach(book => {
             const bookCard = bookTemplate(book);
-            $('#books-view').append(bookCard);
+            $('#books').append(bookCard);
         });
     };
 
