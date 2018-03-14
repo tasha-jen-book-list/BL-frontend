@@ -1,9 +1,23 @@
 header h1{
     display: inline-block;
+    line-height: 100px;
+    text-align: center;
+    font-size: 2.5em;
 }
 
 #icon {
     display: inline-block;
+}
+
+#icon img{
+    padding: 10px;
+}
+
+header .icon-menu{
+    font-size: 5em;
+    position: absolute;
+    right: 45px;
+    top: 25px;
 }
 
 .card a, .card a:visited{
@@ -11,26 +25,28 @@ header h1{
     color: lightgray;
 }
 
-
 nav {
     display:none;
-    background: #555;
+    background: #2b2b2b;
     color: white;
 }
     
-    nav a {
+nav a {
     color: white;
     text-decoration: none;
     font-weight: bolder;
-    }
+    font-size: 1.2em;
+    padding: 20px;
+ }
     
-    nav ul {
+nav ul {
     padding: 0;
-    }
+    margin: 0;
+}
     
-    nav li {
+nav li {
     list-style: none;
-    padding: 10px 5px;
+    padding: 20px 5px;
     font-size: 18px;
     }
 

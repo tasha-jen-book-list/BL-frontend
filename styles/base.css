@@ -8,6 +8,8 @@ html, body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-transform: lowercase;
     color: gray;
+
+    position: relative;
 }
 
 #books {
