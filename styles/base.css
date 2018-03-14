@@ -12,6 +12,15 @@ html, body {
     position: relative;
 }
 
-#books {
+main {
     margin: 0;
+    padding: 10px;
+}
+
+h2 {
+    margin: 0;
+}
+
+h3{
+    font-style: italic;
 }

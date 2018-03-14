@@ -29,42 +29,44 @@
         </ul>
     </nav>
     <!-- views -->
-    <section id="books-view" class="view">
-        <h2>my books</h2>
-        <section id="books">
-        <!-- books load here -->
+    <main>
+        <section id="books-view" class="view">
+            <h2>my books</h2>
+            <section id="books">
+            <!-- books load here -->
+            </section>
         </section>
-    </section>
-    <section id="book-detail-view" class="view"></section>
-    <section id="book-new-view" class="view">
-        <form id="book-form">
-            <div id= "form-style">
-                <fieldset>
-                    <legend>Add a Book:</legend>
-                    <label>
-                        <input type="text" name= "title" value="title">
-                    </label>
-                    <label>
-                        <input type="text" name="author" value="author">
-                    </label>
-                    <label>
-                        <input type="text" name="isbn" value="isbn"> 
-                    </label>
-                    <label>
-                        <input type="text" name="image_url" value="image_url">
-                    </label>
-                    <label>
-                        <input type="text" name="description" value="description">
-                    </label>
-                </fieldset>
-            </div>
-            <div>
-                <input type="submit" value="Add Book">
-            </div>
-        </form>
+        <section id="book-detail-view" class="view"></section>
+        <section id="book-new-view" class="view">
+            <form id="book-form">
+                <div id= "form-style">
+                    <fieldset>
+                        <legend>Add a Book:</legend>
+                        <label>
+                            <input type="text" name= "title" value="title">
+                        </label>
+                        <label>
+                            <input type="text" name="author" value="author">
+                        </label>
+                        <label>
+                            <input type="text" name="isbn" value="isbn"> 
+                        </label>
+                        <label>
+                            <input type="text" name="image_url" value="image_url">
+                        </label>
+                        <label>
+                            <input type="text" name="description" value="description">
+                        </label>
+                    </fieldset>
+                </div>
+                <div>
+                    <input type="submit" value="Add Book">
+                </div>
+            </form>
 
-    </section>
-    <section id="error-view" class="view"></section>
+        </section>
+        <section id="error-view" class="view"></section>
+    </main>
     <footer>
 
     </footer>
@@ -80,11 +82,13 @@
     </script>
 
     <script id="book-detail-template" type="text/html">
-        <h2>{{title}}</h2>
-        <h4>{{author}}<h4>
-        <h4>{{isbn}}<h4>
-        <img class="book detail img" src="{{image_url}}">
-        <p>{{description}}</p>
+        <section class="book detail">
+            <h2>{{title}}</h2>
+            <h3 id="author">{{author}}</h3>
+            <h3 id="isbn">{{isbn}}</h3>
+            <img class="book detail img" src="{{image_url}}">
+            <p>{{description}}</p>
+        </section>
     </script>
     
     <script id="error-template" type="text/x-handlebars-template">
@@ -95,7 +99,7 @@
 
     <!-- config -->
     <script>    
-        const API_URL = window.location.protocol === 'https:'
+        const API_URL = true //window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
         : 'http://localhost:3000/api';
     
