@@ -11,11 +11,12 @@ header h1{
     color: lightgray;
 }
 
+
 nav {
     display:none;
     background: #555;
     color: white;
-    }
+}
     
     nav a {
     color: white;
