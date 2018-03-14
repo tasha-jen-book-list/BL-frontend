@@ -1,7 +1,10 @@
 header {
     background-color: #383838;
+    width: 100%;
+    height: 150px;
     display: flex;
     align-content: center;
+    position: relative;
 }
 
 #books {
@@ -24,6 +27,23 @@ main {
     padding: 10px;
 }
 
-footer{
+#book-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
 
+}
+
+#form-style {
+    background-color: lightgray;
+}
+footer{
+    background-color: darkgray;
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
 }

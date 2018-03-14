@@ -20,13 +20,13 @@
         </section>
         <h1>books app</h1>
         <div class="icon-menu"></div>
-        <nav class="nav-menu">
-            <ul>
-            <li><a href="/home">HomePage</a></li>
-            <li><a href="/books/new">Add New Book</a></li>
-            </ul>
-        </nav>
     </header>
+    <nav class="nav-menu">
+        <ul>
+        <li><a href="/home">HomePage</a></li>
+        <li><a href="/books/new">Add New Book</a></li>
+        </ul>
+    </nav>
     <!-- views -->
     <section id="books-view" class="view">
         <h2>my books</h2>
@@ -34,7 +34,7 @@
     <section id="book-detail-view" class="view"></section>
     <section id="book-new-view" class="view">
         <form id="book-form">
-            <div>
+            <div id= "form-style">
                 <fieldset>
                     <legend>Add a Book:</legend>
                     <label>
@@ -91,7 +91,7 @@
 
     <!-- config -->
     <script>    
-        const API_URL = true //window.location.protocol === 'https:'
+        const API_URL = window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
         : 'http://localhost:3000/api';
     
