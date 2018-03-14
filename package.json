@@ -1,0 +1,25 @@
+{
+  "name": "bl-frontend",
+  "version": "1.0.0",
+  "description": "Booklist",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "live-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tasha-jen-book-list/BL-frontend.git"
+  },
+  "author": "Jen Lipton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tasha-jen-book-list/BL-frontend/issues"
+  },
+  "homepage": "https://github.com/tasha-jen-book-list/BL-frontend#readme",
+  "devDependencies": {
+    "eslint": "^4.18.2",
+    "nodemon": "^1.17.1"
+  },
+  "dependencies": {}
+}

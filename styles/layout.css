@@ -1,0 +1,49 @@
+header {
+    background-color: #383838;
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-content: center;
+    position: relative;
+}
+
+#books {
+    color: darkgray;
+    background-color: lightgray;
+    padding: 10px;
+}
+
+.book .card {
+    width: 80%;
+    border-radius: 10px;
+}
+
+main {
+    background-color: lightgray;
+}
+
+.card .info{
+    background-color: #383838;
+    padding: 10px;
+}
+
+#book-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+
+}
+
+#form-style {
+    background-color: lightgray;
+}
+footer{
+    background-color: darkgray;
+    height: 150px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    margin: 0;
+}
