@@ -34,11 +34,11 @@
                 event.preventDefault();
             
                 const data = {
-                    title: $('textarea[name=title]').val(),
-                    author: $('textarea[name=author]').val(),
-                    isbn: $('textarea[name=isbn]').val(),
-                    image_url: $('textarea[name=image_url]').val(),
-                    description: $('textarea[name=description]').val()
+                    title: $('input[name=title]').val(),
+                    author: $('input[name=author]').val(),
+                    isbn: $('input[name=isbn]').val(),
+                    image_url: $('input[name=image_url]').val(),
+                    description: $('input[name=description]').val()
                 };
 
                 Book.create(data, (book) => {
