@@ -10,6 +10,7 @@
 
     function resetView() {
         $('.view').hide();
+        $('.nav-menu').slideUp(350);
     }
 
     bookView.init = () => {
@@ -18,41 +19,46 @@
 
         Book.all.forEach(book => {
             const bookCard = bookTemplate(book);
-            $('#books').append(bookCard);
+            $('#books-view').append(bookCard);
         });
-        // bookView.handleSubmit();
     };
 
     bookView.initNew = () => {
         resetView();
-        $('#new-book-view').show();
-    }; 
+        $('#book-new-view').show();
+
+        $('#book-form')
+        .off('submit')
+        .on('submit', event => {
+            event.preventDefault();
+            
+            const data = {
+                title: $('textarea[name=title]').val(),
+                author: $('textarea[name=author]').val(),
+                isbn: $('textarea[name=isbn]').val(),
+                image_url: $('textarea[name=image_url]').val(),
+                description: $('textarea[name=description]').val()
+            };
+
+            Book.create(data, (book) => {
+                $('#book-form')[0].reset();
+                page(`/books/${book.id}`);
+            });
+        });
+    };
 
     bookView.initDetail = id => {
+        console.log('detail running');
         resetView();
 
         const bookDetail = detailTemplate(Book.detail);
 
-        $('#detail-book-view')
+        $('#book-detail-view')
             .empty()
             .append(bookDetail)
             .show();
     };
 
-    // bookView.handleSubmit = () => {
-    //     $('#add-book').on('submit', event => {
-    //         event.preventDefault();
-            
-    //         const book = new Book({
-    //             task: $('#book-task').val()
-    //         });
-
-    //         book.insert(() => {
-    //             $('#book-task').val('');
-    //             bookView.loadBook(book);
-    //         });
-    //     });
-    // };
 
     // What does your module export
     module.bookView = bookView;

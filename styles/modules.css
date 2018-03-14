@@ -6,3 +6,29 @@ header h1{
     display: inline-block;
 }
 
+.card a, .card a:visited{
+    text-decoration: none;
+    color: lightgray;
+}
+
+nav {
+    display:none;
+    background: #555;
+    color: white;
+    }
+    
+    nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    }
+    
+    nav ul {
+    padding: 0;
+    }
+    
+    nav li {
+    list-style: none;
+    padding: 10px 5px;
+    font-size: 18px;
+    }
