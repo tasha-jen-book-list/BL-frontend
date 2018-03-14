@@ -27,6 +27,14 @@ main {
     padding: 10px;
 }
 
+#book-form {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+
+}
+
+
 footer{
     background-color: darkgray;
     height: 150px;

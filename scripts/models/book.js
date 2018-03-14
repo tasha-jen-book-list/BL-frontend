@@ -11,17 +11,6 @@
         module.errorView.init(err);
     }
 
-    // // Define "instance" data methods
-    // Book.prototype.insert = function(callback) {
-    //     $.post(`${API_URL}/books`, {
-    //         task: this.task
-    //     })
-    //         .then(data => {
-    //             Object.keys(data).forEach(key => this[key] = data[key]);
-    //             if(callback) callback();
-    //         })
-    //         .catch(errorCallback);
-    // };
     
     Book.all = [];
     
