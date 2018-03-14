@@ -50,6 +50,6 @@ nav li {
     font-size: 18px;
     }
 
-    /* #book-new-view{
-        display: none;
-    } */
+#book-new-view{
+    display: none;
+}

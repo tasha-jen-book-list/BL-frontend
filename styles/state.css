@@ -1,0 +1,5 @@
+@media (max-width: 450px){
+    header h1{
+        display: none;
+    }
+}
