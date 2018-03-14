@@ -27,11 +27,13 @@ main {
 #book-form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
+    margin: auto;
 
 }
 
-
-footer{
+#form-style {
+    background-color: lightgray;
 
 }
