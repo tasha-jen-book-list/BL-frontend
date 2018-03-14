@@ -28,23 +28,23 @@
         $('#book-new-view').show();
 
         $('#book-form')
-        .off('submit')
-        .on('submit', event => {
-            event.preventDefault();
+            .off('submit')
+            .on('submit', event => {
+                event.preventDefault();
             
-            const data = {
-                title: $('textarea[name=title]').val(),
-                author: $('textarea[name=author]').val(),
-                isbn: $('textarea[name=isbn]').val(),
-                image_url: $('textarea[name=image_url]').val(),
-                description: $('textarea[name=description]').val()
-            };
+                const data = {
+                    title: $('textarea[name=title]').val(),
+                    author: $('textarea[name=author]').val(),
+                    isbn: $('textarea[name=isbn]').val(),
+                    image_url: $('textarea[name=image_url]').val(),
+                    description: $('textarea[name=description]').val()
+                };
 
-            Book.create(data, (book) => {
-                $('#book-form')[0].reset();
-                page(`/books/${book.id}`);
+                Book.create(data, (book) => {
+                    $('#book-form')[0].reset();
+                    page(`/books/${book.id}`);
+                });
             });
-        });
     };
 
     bookView.initDetail = id => {
