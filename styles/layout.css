@@ -6,25 +6,89 @@ header {
     align-content: center;
     position: relative;
 }
-
-#books {
-    color: darkgray;
-    background-color: lightgray;
-    padding: 10px;
+nav {
+    display:none;
+    background: #2b2b2b;
+    color: white;
 }
 
-.book .card {
-    width: 80%;
-    border-radius: 10px;
+nav ul {
+    padding: 0;
+    margin: 0;
 }
+    
+nav li {
+    list-style: none;
+    padding: 20px 5px;
+    font-size: 18px;
+    }
+
 
 main {
     background-color: lightgray;
+    height: fit-content;
+    min-height: 80vh;
+}
+
+#books{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 0;
+}
+
+.card {
+    width: 400px;
+    height: 300px;
+    border-radius: 10px;
+    position: relative;
+    display: block;
+    margin: 10px;
+}
+
+.card .img{
+    position: absolute;
+    width: 400px;
+    height: auto;
+    clip: rect(0px,400px,200px,0px);
+    margin: 0;
 }
 
 .card .info{
+    position: absolute;
+    bottom: 0px;
+    width: 400px;
     background-color: #383838;
     padding: 10px;
+    box-sizing: border-box;
+}
+
+.detail{
+    width: 90%;
+    margin: auto;
+    padding-top: 30px;
+}
+
+.detail img{
+    width: 360px;
+    display: block;
+    margin: 20px auto;
+}
+
+.detail h2{
+    text-decoration: underline;
+}
+
+.detail h3{
+    display: inline-block;
+    font-size: 1em;
+    margin: 0;
+}
+
+.detail #isbn{
+    float: right;
 }
 
 #book-form {
@@ -32,18 +96,16 @@ main {
     flex-direction: column;
     align-items: center;
     width: 80%;
-    margin: auto;
-
 }
+
 
 #form-style {
     background-color: lightgray;
 }
+
 footer{
     background-color: darkgray;
     height: 150px;
     width: 100%;
-    position: absolute;
-    bottom: 0px;
     margin: 0;
 }

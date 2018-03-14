@@ -35,7 +35,7 @@
     };
 
     Book.create = function(data, callback) {
-        $.post(`${API_URL}/new`, data)
+        $.post(`${API_URL}/books`, data)
             .then((data) => {
                 if(callback) callback(data);
             })
