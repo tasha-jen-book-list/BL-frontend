@@ -9,7 +9,7 @@
         $('.nav-menu').slideToggle(350);
     });
 
-    // page('/home', () => Book.fetchAll(bookView.init));
+    page('/home', () => Book.fetchAll(bookView.init));
     page('/books/new', () => bookView.initNew());
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
 
