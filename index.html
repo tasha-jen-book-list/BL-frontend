@@ -25,6 +25,7 @@
     <nav class="nav-menu">
         <ul>
         <li><a href="/home">HomePage</a></li>
+        <li><a href="/login">Admin Login</a></li>
         <li><a href="/books/new">Add New Book</a></li>
         </ul>
     </nav>
@@ -60,12 +61,20 @@
                     </fieldset>
                 </div>
                 <div>
-                    <input type="submit" value="Add Book">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
 
         </section>
         <section id="error-view" class="view"></section>
+        <section id="admin-view" class="view">
+            <h2 class="view-title">verify your passphrase</h2>
+            <form id="admin-form">
+                <input id="passphrase" name="passphrase" placeholder="passphrase">
+                <button type="submit">verify</button>
+            </form>
+            <p id="logged-in">you are logged in</p>
+        </section>
     </main>
     <footer>
 
@@ -88,6 +97,8 @@
             <h3 id="isbn">{{isbn}}</h3>
             <img class="book detail img" src="{{image_url}}">
             <p>{{description}}</p>
+            <input type="button" value="update" id="update">
+            <input type="button" value="delete" id="delete">
         </section>
     </script>
     
@@ -99,9 +110,9 @@
 
     <!-- config -->
     <script>    
-        const API_URL = true //window.location.protocol === 'https:'
+        const API_URL = window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
-        : 'http://localhost:3000/api';
+        : 'http://localhost:3000';
     
         window.module = {};
     </script>
@@ -112,7 +123,10 @@
 
         <!-- app scripts -->
     <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/user.js"></script>
     <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/login-view.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 </html>
