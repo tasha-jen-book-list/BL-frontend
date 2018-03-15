@@ -54,6 +54,9 @@
             .show();
         
         if(User.current && User.current.isAdmin){
+            $('#delete').show();
+            $('#update').show();
+            
             $('#delete').on('click', () => {
                 Book.delete(Book.detail.id)
                     .then(() => {
