@@ -4,6 +4,7 @@
 
     const Book = module.Book;
     const bookView = module.bookView;
+    const loginView = module.loginView;
 
     $('.icon-menu').on('click', () => {
         $('.nav-menu').slideToggle(350);
