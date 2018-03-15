@@ -97,8 +97,8 @@
             <h3 id="isbn">{{isbn}}</h3>
             <img class="book detail img" src="{{image_url}}">
             <p>{{description}}</p>
-            <input type="button" name="update" id="update">
-            <input type="button" name="delete" id="delete">
+            <input type="button" value="update" id="update">
+            <input type="button" value="delete" id="delete">
         </section>
     </script>
     
@@ -112,7 +112,7 @@
     <script>    
         const API_URL = true //window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
-        : 'http://localhost:3000/api';
+        : 'http://localhost:3000';
     
         window.module = {};
     </script>
@@ -123,7 +123,10 @@
 
         <!-- app scripts -->
     <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/user.js"></script>
     <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/error-view.js"></script>
+    <script src="scripts/views/login-view.js"></script>
     <script src="scripts/app.js"></script>
 </body>
 </html>

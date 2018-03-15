@@ -18,13 +18,16 @@
     page('*', (ctx, next) => {
         resetView();
         next();
-    })
+    });
+
     page('/home', () => Book.fetchAll(bookView.init));
     
-    page('/login', loginView.init);
-    page('/books/new', () => bookView.initNew);
+    page('/login', () => loginView.init());
+
+    page('/books/new', () => bookView.initNew());
 
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id).then(bookView.initUpdate));
+
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
 
     page('*', () => page.redirect('/home'));

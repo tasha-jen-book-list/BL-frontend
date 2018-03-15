@@ -38,3 +38,6 @@ nav a {
     display: none;
 }
 
+#admin-view {
+    display:none;
+}

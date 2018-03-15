@@ -7,6 +7,7 @@
     const loginView = {};
 
     loginView.init = () => {
+        $('#admin-view').show();
         if(User.isAdmin) {
             $('#admin-form').hide();
             $('#logged-in').show();
@@ -15,7 +16,6 @@
             $('#admin-form').off('submit').on('submit', handleSubmit);
             $('#logged-in').hide();
         }
-        $('#admin-view').show();
     };
 
     const handleSubmit = event => {
