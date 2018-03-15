@@ -26,6 +26,8 @@
 
     page('/books/new', () => bookView.initNew());
 
+    page('/books/search', () => Book.find(bookView.initSearch));
+
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
 
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));

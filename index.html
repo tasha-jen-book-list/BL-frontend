@@ -75,6 +75,20 @@
             </form>
             <p id="logged-in">you are logged in</p>
         </section>
+        <section id="form-search-view" class="search-view">
+            <form id="search-form">
+                <fieldset>
+                    <input type="text" value="title">
+                    <input type="text" value="author">
+                    <input type="number" value="isbn" required>
+                    <input type="submit" value="search">
+                </fieldset>
+            </form>
+        </section>
+        <section id="results-search-view" class="search-view">
+            <ul id="search-results">
+            </ul>
+        </section>
     </main>
     <footer>
 
@@ -105,6 +119,19 @@
     <script id="error-template" type="text/x-handlebars-template">
         <h3>Oops, something went wrong!</h3>
         <p>{{status}}: {{statusText}}</p>
+    </script>
+
+    <script id="result-template" type="text/html">
+        <li>
+            <section class="book card">
+                    <img class="book card img" src="{{image_url}}">
+                    <section class="book info">
+                        <h2><a href = "/books/{{id}}">{{title}}</a></h2>
+                        <h3>{{author}}</h3>
+                        <button>Add me!</button>
+                    </section>
+            </section>
+        </li>
     </script>
 
 
