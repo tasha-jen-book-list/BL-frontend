@@ -25,6 +25,7 @@
     <nav class="nav-menu">
         <ul>
         <li><a href="/home">HomePage</a></li>
+        <li><a href="/login">Admin Login</a></li>
         <li><a href="/books/new">Add New Book</a></li>
         </ul>
     </nav>
@@ -60,12 +61,20 @@
                     </fieldset>
                 </div>
                 <div>
-                    <input type="submit" value="Add Book">
+                    <input type="submit" value="Submit">
                 </div>
             </form>
 
         </section>
         <section id="error-view" class="view"></section>
+        <section id="admin-view" class="view">
+            <h2 class="view-title">verify your passphrase</h2>
+            <form id="admin-form">
+                <input id="passphrase" name="passphrase" placeholder="passphrase">
+                <button type="submit">verify</button>
+            </form>
+            <p id="logged-in">you are logged in</p>
+        </section>
     </main>
     <footer>
 
