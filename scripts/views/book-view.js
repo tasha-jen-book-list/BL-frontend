@@ -3,6 +3,7 @@
 (function(module) {
     const Book = module.Book;
     const User = module.User;
+    const errorView = module.errorView;
 
     const bookView = {};
     const handleError = err => errorView.init(err);
@@ -115,7 +116,7 @@
 
         $('#search-results')
             .empty()
-            .append(Book.found.map(resultTemplate));
+            .append(Book.found.map(resultTemplate))
             .on('click', 'button', handleAdd);
 
 
@@ -124,22 +125,22 @@
             .on('submit', event => {
                 event.preventDefault();
 
-                // const form = event.target;
-                // const search = form.elements.search.value;
-                const data = {
-                    title: $('input[name=title]').val(),
-                    author: $('input[name=author]').val(),
-                    isbn: $('input[name=isbn]').val(),
-                };
+                const form = event.target;
+                const search = form.elements.search.value;
+                // const data = {
+                //     title: $('input[name=title]').val(),
+                //     author: $('input[name=author]').val(),
+                //     isbn: $('input[name=isbn]').val(),
+                // };
         
-                page(`/volumes?search=${encodeURIComponent(data)}`);
+                // page(`/volumes?search=${encodeURIComponent(search)}`);
             });
 
         const handleAdd = function(){
             const isbn = $(this).data('isbn');
             Book.import(isbn)
                 .then(book => page(`books/${book.id}`));
-        }
+        };
     };
     // What does your module export
     module.bookView = bookView;
