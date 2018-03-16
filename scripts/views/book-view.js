@@ -113,6 +113,8 @@
     bookView.initSearch = () => {
         $('#form-search-view').show();
 
+        $('#movie-search input[name=search]').val(Book.search);
+
         $('#search-form')
             .off('submit')
             .on('submit', event => {
@@ -126,8 +128,6 @@
                 //     author: $('input[name=search-author]').val(),
                 //     isbn: $('input[name=search-isbn]').val(),
                 // };
-                
-                Book.find(data);
             });
 
 
@@ -139,6 +139,7 @@
     
         $('#search-results')
             .empty()
+            .off('click')
             .on('click', 'button', handleAdd)
             .append(Book.found.map(resultTemplate));
     };

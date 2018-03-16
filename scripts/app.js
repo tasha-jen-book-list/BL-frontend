@@ -24,7 +24,10 @@
     
     page('/login', () => loginView.init());
     
-    page('/search', ctx => Book.find(ctx.params.id, bookView.initSearch()));
+    page('/search', ctx => {
+        const search = Qs.parse(ctx.querystring).search;
+        Book.find(search).then(bookView.init);
+    });
 
     page('/books/new', () => bookView.initNew());
 
