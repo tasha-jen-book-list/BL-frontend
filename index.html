@@ -27,7 +27,7 @@
         <li><a href="/home">HomePage</a></li>
         <li><a href="/login">Admin Login</a></li>
         <li><a href="/books/new">Add New Book</a></li>
-        <li><a href="/books/search">Search Books</a></li>
+        <li><a href="/search">Search Books</a></li>
         </ul>
     </nav>
     <!-- views -->
@@ -84,9 +84,9 @@
         <section id="form-search-view" class="search-view view">
             <form id="search-form">
                 <fieldset>
-                    <input type="text" value="title">
-                    <input type="text" value="author">
-                    <input type="number" value="isbn" required>
+                    <input type="text" name="search-title" value="title">
+                    <!-- <input type="text" name="search-author" value="author">
+                    <input type="number" name="search-isbn" value="isbn"> -->
                     <input type="submit" value="search">
                 </fieldset>
             </form>

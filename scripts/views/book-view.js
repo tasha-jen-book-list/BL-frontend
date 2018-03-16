@@ -93,7 +93,6 @@
             .off('submit')
             .on('submit', event => {
                 event.preventDefault();
-    
             
                 const data = {
                     title: $('input[name=title]').val(),
