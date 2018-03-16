@@ -57,25 +57,6 @@
         });
     };
 
-    Book.found = null;
-    Book.total = 0;
-    Book.search = '';
-
-    Book.find = search => {
-        Book.search = search;
-        return $.getJSON(`${API_URL}/volumes?search=${encodeURIComponent(search)}`)
-            .then(result => {
-                Book.found = result.books;
-                Book.total = result.total;
-            });
-    };
-
-    Book.import = isbn => {
-        return $.ajax({
-            url: `${API_URL}/books`,
-            method: 'PUT'
-        });
-    };
 
     module.Book = Book;
 

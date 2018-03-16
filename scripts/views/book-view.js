@@ -10,7 +10,7 @@
 
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
-    const resultTemplate = Handlebars.compile($('#result-template').html());
+
 
 
     bookView.init = () => {
@@ -109,38 +109,6 @@
                     page(`/books/${book.id}`);
                 });
             });
-    };
-
-    bookView.initSearch = () => {
-        $('#form-search-view').show();
-
-        $('#search-results')
-            .empty()
-            .append(Book.found.map(resultTemplate))
-            .on('click', 'button', handleAdd);
-
-
-        $('#search-form')
-            .off('submit')
-            .on('submit', event => {
-                event.preventDefault();
-
-                const form = event.target;
-                const search = form.elements.search.value;
-                // const data = {
-                //     title: $('input[name=title]').val(),
-                //     author: $('input[name=author]').val(),
-                //     isbn: $('input[name=isbn]').val(),
-                // };
-        
-                // page(`/volumes?search=${encodeURIComponent(search)}`);
-            });
-
-        const handleAdd = function(){
-            const isbn = $(this).data('isbn');
-            Book.import(isbn)
-                .then(book => page(`books/${book.id}`));
-        };
     };
     // What does your module export
     module.bookView = bookView;
