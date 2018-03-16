@@ -63,14 +63,14 @@
 
     Book.find = search => {
         Book.search = search;
-        return $.getJSON(`${API_URL}/volumes?search=${encodeURIComponent(search)}`)
+        return $.getJSON(`${API_URL}/search?search=${encodeURIComponent(search)}`)
             .then(result => {
                 Book.found = result.books;
                 Book.total = result.total;
             });
     };
 
-    Book.import = isbn => {
+    Book.import = id => {
         return $.ajax({
             url: `${API_URL}/books`,
             method: 'PUT'

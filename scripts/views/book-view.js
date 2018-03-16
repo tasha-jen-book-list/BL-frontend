@@ -93,7 +93,6 @@
             .off('submit')
             .on('submit', event => {
                 event.preventDefault();
-    
             
                 const data = {
                     title: $('input[name=title]').val(),
@@ -114,33 +113,34 @@
     bookView.initSearch = () => {
         $('#form-search-view').show();
 
-        $('#search-results')
-            .empty()
-            .append(Book.found.map(resultTemplate))
-            .on('click', 'button', handleAdd);
-
-
         $('#search-form')
             .off('submit')
             .on('submit', event => {
                 event.preventDefault();
 
-                const form = event.target;
-                const search = form.elements.search.value;
+                // const form = event.target;
+                const data = $('input[name=search-title]').val();
+
                 // const data = {
-                //     title: $('input[name=title]').val(),
-                //     author: $('input[name=author]').val(),
-                //     isbn: $('input[name=isbn]').val(),
+                //     title: $('input[name=search-title]').val(),
+                //     author: $('input[name=search-author]').val(),
+                //     isbn: $('input[name=search-isbn]').val(),
                 // };
-        
-                // page(`/volumes?search=${encodeURIComponent(search)}`);
+                
+                Book.find(data);
             });
+
 
         const handleAdd = function(){
             const isbn = $(this).data('isbn');
             Book.import(isbn)
                 .then(book => page(`books/${book.id}`));
         };
+    
+        $('#search-results')
+            .empty()
+            .on('click', 'button', handleAdd)
+            .append(Book.found.map(resultTemplate));
     };
     // What does your module export
     module.bookView = bookView;

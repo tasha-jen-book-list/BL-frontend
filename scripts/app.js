@@ -23,18 +23,14 @@
     page('/home', () => Book.fetchAll(bookView.init));
     
     page('/login', () => loginView.init());
+    
+    page('/search', ctx => Book.find(ctx.params.id, bookView.initSearch()));
 
     page('/books/new', () => bookView.initNew());
 
-    page('/search', ctx => {
-        bookView.initSearch();
-        // const search = Qs.parse(ctx.querystring).search;
-        // Book.find(search).then(bookView.initSearch());
-    });
+    page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate()));
 
-    page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
-
-    page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
+    page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail()));
 
     page('*', () => page.redirect('/home'));
 
