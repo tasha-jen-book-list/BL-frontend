@@ -144,7 +144,7 @@
 
     <!-- config -->
     <script>    
-        const API_URL = window.location.protocol === 'https:'
+        const API_URL = true //window.location.protocol === 'https:'
         ? 'https://bc2-booklist.herokuapp.com'
         : 'http://localhost:3000';
     
@@ -157,9 +157,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
         <!-- app scripts -->
-    <script src="scripts/models/book.js"></script>
-    <script src="scripts/models/user.js"></script>
+        <script src="scripts/models/book.js"></script>
+        <script src="scripts/models/searched-book.js"></script>
+        <script src="scripts/models/user.js"></script>
     <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/searched-book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/views/login-view.js"></script>
     <script src="scripts/app.js"></script>
