@@ -12,6 +12,12 @@
 
     Volume.find = search => {
         Volume.search = search;
+        if (!Volume.search) {
+            Volume.found = null;
+            Volume.total = 0;
+            return Promise.resolve();
+        }
+        
         return $.getJSON(`${GOOGLE_API_URL}/volumes?search=${encodeURIComponent(search)}`)
             .then(result => {
                 Volume.found = result.books;

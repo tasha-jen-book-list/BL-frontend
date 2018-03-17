@@ -3,8 +3,10 @@
 (function(module) {
 
     const Book = module.Book;
+    const Volume = module.Volume;
     const bookView = module.bookView;
     const loginView = module.loginView;
+    const searchedView = module.searchedView;
 
     $('.icon-menu').on('click', () => {
         $('.nav-menu').slideToggle(350);
@@ -23,15 +25,12 @@
     page('/home', () => Book.fetchAll(bookView.init));
     
     page('/login', () => loginView.init());
-    
-    page('/search', ctx => Book.find(ctx.params.id, bookView.initSearch()));
 
     page('/books/new', () => bookView.initNew());
 
-    page('/search', (ctx) => bookView.initSearch();
-        // const search = Qs.parse(ctx.querystring).search;
-        // Book.find(search).then(bookView.initSearch());
-    });
+    page('/books/search', (ctx) => Volume.find(searchedView.initSearch));
+    // const search = Qs.parse(ctx.querystring).search;
+    // Book.find(search).then(bookView.initSearch());
 
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
 
