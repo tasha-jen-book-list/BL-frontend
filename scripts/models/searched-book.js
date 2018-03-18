@@ -3,13 +3,19 @@
 (function (module) {
 
 
-    
-    const Volume = module.Volume;
+    function Volume(data) {
+        Object.keys(data).forEach(key => this[key] = data[key]);
+    }
 
+    function errorCallback(err) {
+        console.log(err);
+        module.errorView.init(err);
+    }
+    
     Volume.found = null;
     Volume.total = 0;
     Volume.search = '';
-
+    
     Volume.find = search => {
         Volume.search = search;
         if (!Volume.search) {
@@ -24,12 +30,14 @@
                 Volume.total = result.total;
             });
     };
-
+    
     Volume.import = isbn => {
         return $.ajax({
-            url: `${API_URL}/books`,
+            url: `${GOOGLE_API_URL}/books`,
             method: 'PUT'
         });
     };
+    
+    module.Volume = Volume;
 
 })(window.module);

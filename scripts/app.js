@@ -28,7 +28,7 @@
 
     page('/books/new', () => bookView.initNew());
 
-    page('/books/search', (ctx) => Volume.find(searchedView.initSearch));
+    page('/volume/search', () => searchedView.initSearch);
     // const search = Qs.parse(ctx.querystring).search;
     // Book.find(search).then(bookView.initSearch());
 
