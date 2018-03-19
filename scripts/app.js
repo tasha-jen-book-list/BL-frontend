@@ -5,6 +5,7 @@
     const Book = module.Book;
     const bookView = module.bookView;
     const loginView = module.loginView;
+    const searchedView = module.searchedView;
 
     $('.icon-menu').on('click', () => {
         $('.nav-menu').slideToggle(350);
@@ -25,6 +26,8 @@
     page('/login', () => loginView.init());
 
     page('/books/new', () => bookView.initNew());
+
+    page('/volumes/find', () => searchedView.initSearch());
 
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
 

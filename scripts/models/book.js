@@ -11,11 +11,10 @@
         module.errorView.init(err);
     }
 
-    
     Book.all = [];
     
     Book.fetchAll = function(callback) {
-        $.getJSON(`${API_URL}/books`)
+        $.getJSON(`${API_URL}/books`) //eslint-disable-line
             .then(data => {
                 Book.all = data.map(each => new Book(each));
                 if(callback) callback();
@@ -26,7 +25,7 @@
     Book.detail = null;
 
     Book.fetchOne = (id, callback) => {
-        $.getJSON(`${API_URL}/books/${id}`)
+        $.getJSON(`${API_URL}/books/${id}`) //eslint-disable-line
             .then(data => {
                 Book.detail = new Book(data);
                 if(callback) callback();
@@ -35,7 +34,7 @@
     };
 
     Book.create = function(data, callback) {
-        $.post(`${API_URL}/books`, data)
+        $.post(`${API_URL}/books`, data) //eslint-disable-line
             .then((data) => {
                 if(callback) callback(data);
             })
@@ -44,7 +43,7 @@
 
     Book.update = data => {
         return $.ajax({
-            url: `${API_URL}/books/${data.id}`,
+            url: `${API_URL}/books/${data.id}`, //eslint-disable-line
             method: 'PUT',
             data: data
         });
@@ -52,7 +51,7 @@
 
     Book.delete = id => {
         return $.ajax({
-            url: `${API_URL}/books/${id}`,
+            url: `${API_URL}/books/${id}`, //eslint-disable-line
             method: 'DELETE',
         });
     };
