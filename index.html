@@ -38,7 +38,9 @@
             <!-- books load here -->
             </section>
         </section>
+
         <section id="book-detail-view" class="view"></section>
+        
         <section id="book-new-view" class="view">
             <form id="book-form">
                 <div id= "form-style">
@@ -67,7 +69,9 @@
             </form>
 
         </section>
+        
         <section id="error-view" class="view"></section>
+        
         <section id="admin-view" class="view">
             <h2 class="view-title">verify your passphrase</h2>
             <form id="admin-form">
@@ -76,6 +80,7 @@
             </form>
             <p id="logged-in">you are logged in</p>
         </section>
+        
         <section id="form-search-view" class="search-view view">
             <form id="search-form">
                 <fieldset>
@@ -86,9 +91,10 @@
                 </fieldset>
             </form>
         </section>
+
         <section id="results-search-view" class="search-view view">
-            <ul id="search-results">
-            </ul>
+            <h2>Book Results</h2>
+            <ul id="search-results"></ul>
         </section>
     </main>
     <footer>
@@ -123,11 +129,11 @@
     </script>
 
     <script id="result-template" type="text/html">
-        <li>
+        <li class="book-results" data-id={{id}}>
             <section class="book card">
                     <img class="book card img" src="{{image_url}}">
                     <section class="book info">
-                        <h2><a href = "/books/{{id}}">{{title}}</a></h2>
+                        <h2>{{title}}</h2>
                         <h3>{{author}}</h3>
                         <button>Add me!</button>
                     </section>
@@ -147,6 +153,7 @@
     <!-- third party scripts -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.1/qs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
         <!-- app scripts -->

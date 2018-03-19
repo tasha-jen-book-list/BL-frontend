@@ -31,7 +31,12 @@
 
     page('/books/new', () => bookView.initNew());
 
-    page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate()));
+    page('/search', (ctx) => bookView.initSearch();
+        // const search = Qs.parse(ctx.querystring).search;
+        // Book.find(search).then(bookView.initSearch());
+    });
+
+    page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
 
     page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail()));
 

@@ -10,7 +10,7 @@
 
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
-    const resultTemplate = Handlebars.compile($('#result-template').html());
+
 
 
     bookView.init = () => {
@@ -108,40 +108,6 @@
                     page(`/books/${book.id}`);
                 });
             });
-    };
-
-    bookView.initSearch = () => {
-        $('#form-search-view').show();
-
-        $('#movie-search input[name=search]').val(Book.search);
-
-        $('#search-form')
-            .off('submit')
-            .on('submit', event => {
-                event.preventDefault();
-
-                // const form = event.target;
-                const data = $('input[name=search-title]').val();
-
-                // const data = {
-                //     title: $('input[name=search-title]').val(),
-                //     author: $('input[name=search-author]').val(),
-                //     isbn: $('input[name=search-isbn]').val(),
-                // };
-            });
-
-
-        const handleAdd = function(){
-            const isbn = $(this).data('isbn');
-            Book.import(isbn)
-                .then(book => page(`books/${book.id}`));
-        };
-    
-        $('#search-results')
-            .empty()
-            .off('click')
-            .on('click', 'button', handleAdd)
-            .append(Book.found.map(resultTemplate));
     };
     // What does your module export
     module.bookView = bookView;
