@@ -1,0 +1,47 @@
+header h1{
+    display: inline-block;
+    line-height: 100px;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+#icon {
+    display: inline-block;
+}
+
+#icon img{
+    padding: 10px;
+}
+
+header .icon-menu{
+    font-size: 5em;
+    position: absolute;
+    right: 45px;
+    top: 25px;
+}
+
+.card a, .card a:visited{
+    text-decoration: none;
+    color: lightgray;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 1.2em;
+    padding: 20px;
+ }
+    
+
+#book-new-view{
+    display: none;
+}
+
+#delete, #update {
+    display: none;
+}
+
+#admin-view {
+    display:none;
+}
