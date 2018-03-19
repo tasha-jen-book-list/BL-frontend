@@ -10,33 +10,65 @@
     searchedView.initSearch = () => {
         $('#form-search-view').show();
 
-        // $('#search-results')
-        //     .empty()
-        //     .append(Volume.found.map(resultTemplate))
-        //     .on('click', 'button', handleAdd);
-
-
         $('#search-form')
             .off('submit')
-            .on('submit', event => {
-                event.preventDefault();
+            .on('submit', handleSearch);
 
-                const form = event.target;
-                const search = form.elements.search.value;
-                const data = {
-                    title: $('input[name=title]').val(),
-                    author: $('input[name=author]').val(),
-                    isbn: $('input[name=isbn]').val(),
-                };
-        
-                page(`/volumes?search=${encodeURIComponent(search)}`);
-            });
+        $('#search-results')
+            .empty();
 
-        const handleAdd = function(){
-            const isbn = $(this).data('isbn');
-            Volume.import(isbn)
-                .then(book => page(`books/${book.id}`));
-        };
+        if (Volume.found) handleResults();
     };
+
+    const handleAdd = function(){
+        const isbn = $(this).data('isbn');
+        Volume.import(isbn, (book) => page(`/books/${book.id}`) );
+    };
+
+    const handleSearch = e => {
+        e.preventDefault();
+        $('#search-results').empty();
+
+        const searchTitle = $('#search-form input[name=search-title]').val();
+        const searchAuthor = $('#search-form input[name=search-author]').val();
+        const searchISBN = $('#search-form input[name=search-isbn]').val();
+
+        if (!searchTitle && !searchAuthor && !searchISBN) {
+            alert('Please enter at least one search value');
+            return 'invalid search';
+        } else {
+            let searchString = '';
+            if (searchTitle) searchString += `intitle:${searchTitle}`;
+            if (searchAuthor) {
+                if (searchString){
+                    searchString += `+inauthor:${searchAuthor}`;}
+                else {
+                    searchString += `inauthor:${searchAuthor}`;
+                }
+            }
+            if (searchISBN) {
+                if (searchString){
+                    searchString += `+isbn:${searchISBN}`;
+                } else {
+                    searchString += `isbn:${searchISBN}`;
+                }
+            }
+            searchString = searchString.replace(/\s/g, '+');
+
+            Volume.find(searchString)
+                .then( () => handleResults() );
+        }
+    };
+
+    const handleResults = () => {
+        $('#search-results')
+            .off('button')
+            .append(Volume.found.map(resultTemplate))
+            .on('click', 'button', handleAdd);
+
+        $('#results-search-view').show();
+    };
+
+    module.searchedView = searchedView;
 
 }) (window.module);

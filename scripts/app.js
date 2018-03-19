@@ -3,7 +3,6 @@
 (function(module) {
 
     const Book = module.Book;
-    const Volume = module.Volume;
     const bookView = module.bookView;
     const loginView = module.loginView;
     const searchedView = module.searchedView;
@@ -28,13 +27,11 @@
 
     page('/books/new', () => bookView.initNew());
 
-    page('/volume/search', () => searchedView.initSearch);
-    // const search = Qs.parse(ctx.querystring).search;
-    // Book.find(search).then(bookView.initSearch());
+    page('/volumes/find', () => searchedView.initSearch());
 
     page('/books/:id/update', ctx => Book.fetchOne(ctx.params.id, bookView.initUpdate));
 
-    page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail()));
+    page('/books/:id', (ctx) => Book.fetchOne(ctx.params.id, bookView.initDetail));
 
     page('*', () => page.redirect('/home'));
 

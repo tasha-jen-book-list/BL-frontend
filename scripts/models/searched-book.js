@@ -2,14 +2,10 @@
     
 (function (module) {
 
+    const Book = module.Book;
 
     function Volume(data) {
         Object.keys(data).forEach(key => this[key] = data[key]);
-    }
-
-    function errorCallback(err) {
-        console.log(err);
-        module.errorView.init(err);
     }
     
     Volume.found = null;
@@ -17,8 +13,6 @@
     Volume.search = '';
     
     Volume.find = search => {
-
-        //${data.title.trim()}${data.author.trim()}${data.isbn.trim()}`)
         
         Volume.search = search;
         if (!Volume.search) {
@@ -27,18 +21,26 @@
             return Promise.resolve();
         }
         
-        return $.getJSON(`${GOOGLE_API_URL}/volumes?search=${encodeURIComponent(search)}`)
+        return $.getJSON(`${API_URL}/volumes/find?q=${encodeURI(search)}`) //eslint-disable-line
             .then(result => {
                 Volume.found = result.books;
                 Volume.total = result.total;
             });
     };
     
-    Volume.import = isbn => {
+    Volume.import = (isbn, callback) => {
+        const search = isbn.slice(8, isbn.length);
         return $.ajax({
-            url: `${GOOGLE_API_URL}/books`,
+            url: `${API_URL}/books/volumes/${search}`, //eslint-disable-line
             method: 'PUT'
-        });
+        })
+            .then(data => {
+                Book.detail = new Book(data);
+                if (callback) callback(Book.detail);
+            })
+            .catch(err => {
+                console.error(err);
+            });
     };
     
     module.Volume = Volume;

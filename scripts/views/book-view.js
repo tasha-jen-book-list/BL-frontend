@@ -11,8 +11,6 @@
     const bookTemplate = Handlebars.compile($('#book-template').html());
     const detailTemplate = Handlebars.compile($('#book-detail-template').html());
 
-
-
     bookView.init = () => {
         $('#books-view').show();
 

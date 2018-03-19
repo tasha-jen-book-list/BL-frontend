@@ -32,7 +32,12 @@ nav a {
     font-size: 1.2em;
     padding: 20px;
  }
-    
+
+#search-results button {
+    background-color: Transparent;
+    outline: none;
+    border: none;
+}
 
 #book-new-view{
     display: none;

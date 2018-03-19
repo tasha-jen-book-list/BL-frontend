@@ -27,7 +27,7 @@
         <li><a href="/home">HomePage</a></li>
         <li><a href="/login">Admin Login</a></li>
         <li><a href="/books/new">Add New Book</a></li>
-        <li><a href="/volume/search">Search Books</a></li>
+        <li><a href="/volumes/find">Search Books</a></li>
         </ul>
     </nav>
     <!-- views -->
@@ -84,9 +84,9 @@
         <section id="form-search-view" class="search-view view">
             <form id="search-form">
                 <fieldset>
-                    <input type="text" name="search-title" value="title">
-                    <input type="text" name="search-author" value="author">
-                    <input type="number" name="search-isbn" value="isbn">
+                    <input type="text" name="search-title" placeholder="title">
+                    <input type="text" name="search-author" placeholder="author">
+                    <input type="number" name="search-isbn" placeholder="isbn">
                     <input type="submit" value="search">
                 </fieldset>
             </form>
@@ -94,7 +94,9 @@
 
         <section id="results-search-view" class="search-view view">
             <h2>Book Results</h2>
-            <ul id="search-results"></ul>
+            <section id="search-results">
+                <!-- search loads here -->
+            </section>
         </section>
     </main>
     <footer>
@@ -129,24 +131,23 @@
     </script>
 
     <script id="result-template" type="text/html">
-        <li class="book-results" data-id={{id}}>
-            <section class="book card">
-                    <img class="book card img" src="{{image_url}}">
-                    <section class="book info">
-                        <h2>{{title}}</h2>
-                        <h3>{{author}}</h3>
-                        <button>Add me!</button>
-                    </section>
-            </section>
-        </li>
+        <section class="book-results card" data-id={{id}}>
+                <img class="book card img" src="{{image_url}}">
+                <section class="book info">
+                    <h2>{{title}}</h2>
+                    <h3>{{author}}</h3>
+                    <button class="icon-plus" data-isbn="{{isbn}}"></button>
+                </section>
+        </section>
     </script>
-
 
     <!-- config -->
     <script>    
-        const API_URL = true //window.location.protocol === 'https:'
-        ? 'https://bc2-booklist.herokuapp.com'
-        : 'http://localhost:3000';
+        // const API_URL = window.location.protocol === 'https:'
+        // ? 'https://bc2-booklist.herokuapp.com'
+        // : 'http://localhost:3000';
+
+        const API_URL = 'http://localhost:3001';
     
         window.module = {};
     </script>
@@ -156,10 +157,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.1/qs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
-        <!-- app scripts -->
-        <script src="scripts/models/book.js"></script>
-        <script src="scripts/models/searched-book.js"></script>
-        <script src="scripts/models/user.js"></script>
+    <!-- app scripts -->
+    <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/searched-book.js"></script>
+    <script src="scripts/models/user.js"></script>
     <script src="scripts/views/book-view.js"></script>
     <script src="scripts/views/searched-book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
