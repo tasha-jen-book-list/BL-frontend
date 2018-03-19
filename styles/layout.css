@@ -21,8 +21,7 @@ nav li {
     list-style: none;
     padding: 20px 5px;
     font-size: 18px;
-    }
-
+}
 
 main {
     background-color: lightgray;
@@ -30,7 +29,7 @@ main {
     min-height: 80vh;
 }
 
-#books{
+#books, #search-results{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
@@ -97,7 +96,6 @@ main {
     align-items: center;
     width: 80%;
 }
-
 
 #form-style {
     background-color: lightgray;

@@ -27,6 +27,7 @@
         <li><a href="/home">HomePage</a></li>
         <li><a href="/login">Admin Login</a></li>
         <li><a href="/books/new">Add New Book</a></li>
+        <li><a href="/volumes/find">Search Books</a></li>
         </ul>
     </nav>
     <!-- views -->
@@ -37,7 +38,9 @@
             <!-- books load here -->
             </section>
         </section>
+
         <section id="book-detail-view" class="view"></section>
+        
         <section id="book-new-view" class="view">
             <form id="book-form">
                 <div id= "form-style">
@@ -66,7 +69,9 @@
             </form>
 
         </section>
+        
         <section id="error-view" class="view"></section>
+        
         <section id="admin-view" class="view">
             <h2 class="view-title">verify your passphrase</h2>
             <form id="admin-form">
@@ -74,6 +79,24 @@
                 <button type="submit">verify</button>
             </form>
             <p id="logged-in">you are logged in</p>
+        </section>
+        
+        <section id="form-search-view" class="search-view view">
+            <form id="search-form">
+                <fieldset>
+                    <input type="text" name="search-title" placeholder="title">
+                    <input type="text" name="search-author" placeholder="author">
+                    <input type="number" name="search-isbn" placeholder="isbn">
+                    <input type="submit" value="search">
+                </fieldset>
+            </form>
+        </section>
+
+        <section id="results-search-view" class="search-view view">
+            <h2>Book Results</h2>
+            <section id="search-results">
+                <!-- search loads here -->
+            </section>
         </section>
     </main>
     <footer>
@@ -107,6 +130,16 @@
         <p>{{status}}: {{statusText}}</p>
     </script>
 
+    <script id="result-template" type="text/html">
+        <section class="book-results card" data-id={{id}}>
+                <img class="book card img" src="{{image_url}}">
+                <section class="book info">
+                    <h2>{{title}}</h2>
+                    <h3>{{author}}</h3>
+                    <button class="icon-plus" data-isbn="{{isbn}}"></button>
+                </section>
+        </section>
+    </script>
 
     <!-- config -->
     <script>    
@@ -119,12 +152,15 @@
     <!-- third party scripts -->
     <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.5.1/qs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
 
-        <!-- app scripts -->
+    <!-- app scripts -->
     <script src="scripts/models/book.js"></script>
+    <script src="scripts/models/searched-book.js"></script>
     <script src="scripts/models/user.js"></script>
     <script src="scripts/views/book-view.js"></script>
+    <script src="scripts/views/searched-book-view.js"></script>
     <script src="scripts/views/error-view.js"></script>
     <script src="scripts/views/login-view.js"></script>
     <script src="scripts/app.js"></script>

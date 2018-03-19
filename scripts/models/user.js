@@ -9,7 +9,7 @@
     User.current = null;
 
     User.auth = passphrase => {
-        return $.getJSON(`${API_URL}/admin?token=${passphrase}`)
+        return $.getJSON(`${API_URL}/admin?token=${passphrase}`) //eslint-disable-line
             .then(response => {
                 const user = new User(response);
                 User.current = user;

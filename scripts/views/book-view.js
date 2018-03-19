@@ -3,6 +3,7 @@
 (function(module) {
     const Book = module.Book;
     const User = module.User;
+    const errorView = module.errorView;
 
     const bookView = {};
     const handleError = err => errorView.init(err);
@@ -43,7 +44,7 @@
             });
     };
 
-    bookView.initDetail = id => {
+    bookView.initDetail = () => {
         console.log('detail running');
 
         const bookDetail = detailTemplate(Book.detail);
@@ -96,16 +97,16 @@
                     author: $('input[name=author]').val(),
                     isbn: $('input[name=isbn]').val(),
                     image_url: $('input[name=image_url]').val(),
-                    description: $('input[name=description]').val()
+                    description: $('input[name=description]').val(),
+                    id: book.id
                 };
 
-                Book.update(data, (book) => {
+                Book.update(data).then(() => {
                     $('#book-form')[0].reset();
                     page(`/books/${book.id}`);
                 });
             });
     };
-
     // What does your module export
     module.bookView = bookView;
 
